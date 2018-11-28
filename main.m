@@ -1,12 +1,13 @@
 function main(vargs)
 %     img_list = {'Images/Easy.jpg'};
     archive = {};
+    clc;
     main_prompt = 'Would you like to:\n(a) - Archive a boulder \n(f) - Find a boulder \n(q) - Quit\n';
     while(1)
         user_input = lower(input(main_prompt,'s'));
         switch user_input
             case 'f'
-                disp('finding a boulder');
+                search_for_boulder(archive);
             case 'a'
                 archive = archive_image(archive);
             case 'q'
