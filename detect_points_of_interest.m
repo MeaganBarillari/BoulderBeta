@@ -1,7 +1,3 @@
-function points_of_interest = detect_points_of_interest(img)
-    POI = detectSURFFeatures(im2bw(img)); 
-    points_of_interest = POI.selectStrongest(100);
-    
-        
-
-    
+function POI = detect_points_of_interest(img)
+    [img, POI] = vl_sift(single(rgb2gray(img)), 'Levels', 1);  
+%     POI = POI(:,1:2:size(POI,2));

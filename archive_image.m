@@ -52,14 +52,16 @@ function archive = archive_image(archive)
                 ends(size(ends) + 1) = { get_user_input(img, 'b') };
             case 'd'
                 clc;
-                if(~isempty(starts) && ~isempty(ends))
+%                 if(~isempty(starts) && ~isempty(ends))
                    feature.starts = starts;
                    feature.ends = ends;
                    feature.POI = { detect_points_of_interest(img) };
-                   archive(size(archive) + 1) = {feature};
-                end
+                   archive(size(archive,2) + 1) = {feature};
+                   saveas(input_figure, strcat('Images DB/', name, '.jpg'));
+%                 end
                 return;
         end
         set(input_figure, 'Visible', 'off');
     end
+    
 end
